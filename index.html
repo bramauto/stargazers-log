@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Stargazers log</title>
-  </head>
-  <body>
-    <h1>Stargazers log</h1>
-    <p>A log of the repositories I've starred.</p>
-  </body>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autosalone - Benvenuto</title>
+    <style>
+        /* Reset stili base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Contenitore principale con lo sfondo a tutto schermo */
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            /* Sostituisci 'PARCO.jpg' con il nome o il link della tua foto */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('sfondo-auto.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Stile del Menu di Navigazione */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff3333; /* Accento di colore rosso sportivo */
+        }
+
+        .menu-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Effetto al passaggio del mouse sui bottoni */
+        .nav-btn:hover {
+            background-color: #ffffff;
+            color: #111111;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Contenuto Centrale */
+        .main-content {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .main-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsive per smartphone */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .menu-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-btn {
+                text-align: center;
+                width: 100%;
+            }
+            .main-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-background">
+        
+        <!-- Menu con 4 Bottoni -->
+        <nav class="navbar">
+            <div class="logo">Auto<span>Salone</span></div>
+            <div class="menu-buttons">
+                <a href="#usato" class="nav-btn">AUTO USATE</a>
+                <a href="#auto-km-zero" class="nav-btn">AUTO KM ZERO</a>
+                <a href="#vendi" class="nav-btn">VENDI QUI LA TUA AUTO</a>
+                <a href="#chi-siamo" class="nav-btn">CHI SIAMO</a>
+            </div>
+        </nav>
+
+        <!-- Testo centrale di benvenuto -->
+        <div class="main-content">
+            <h1>Scegli la tua prossima auto</h1>
+            <p>Qualità, affidabilità e passione al tuo servizio.</p>
+        </div>
+
+    </div>
+
+</body>
 </html>
