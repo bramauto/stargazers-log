@@ -3,184 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autosalone - Benvenuto</title>
+    <meta name="theme-color" content="#171717">
+    <title>Brama Auto - La tua prossima auto è qui</title>
+
     <style>
-        /* Reset stili base */
+        :root {
+            --orange: #ff6500;
+            --white: #ffffff;
+            --dark: #111111;
+            --muted: #b8b8b8;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Contenitore principale con lo sfondo a tutto schermo */
-        body, html {
-            height: 100%;
-            overflow: hidden;
+        html {
+            scroll-behavior: smooth;
         }
-        
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            min-height: 100vh;
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--dark);
         }
 
-        .main-content {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 30px;
-            text-align: left; /* testo a sinistra */
-        }
-
-        .main-content p {
-            margin: 10px 0;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .main-content h1 {
-            margin: 20px 0 10px;
-            font-size: 42px;
-            color: #111;
-        }
-
-        .hero-background {
-            /* Sostituisci 'PARCO.jpg' con il nome o il link della tua foto */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('PARCO.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100%;
+        .hero {
+            position: relative;
             display: flex;
+            min-height: 100vh;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.18) 58%,
+                    rgba(0, 0, 0, 0.35)
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.86),
+                    transparent 65%
+                ),
+                url("PARCO.jpg") center 55% / cover no-repeat;
         }
 
-        /* Stile del Menu di Navigazione */
         .navbar {
-            width: 100%;
-            max-width: 1200px;
+            position: relative;
+            z-index: 1;
             display: flex;
-            justify-content: space-between;
+            width: 100%;
+            min-height: 84px;
             align-items: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            justify-content: space-between;
+            gap: 30px;
+            padding: 16px max(5%, calc((100% - 1520px) / 2));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(15, 15, 15, 0.72);
         }
 
         .logo {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #ff3333; /* Accento di colore rosso sportivo */
-        }
-
-        .menu-buttons {
             display: flex;
-            gap: 15px;
-        }
-
-        .nav-btn {
+            align-items: center;
+            gap: 14px;
+            color: var(--white);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 5px;
             text-decoration: none;
-            color: #ffffff;
-            padding: 10px 20px;
+            white-space: nowrap;
+        }
+
+        .logo-mark {
+            color: var(--orange);
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .logo-auto {
+            color: var(--orange);
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: clamp(20px, 3vw, 48px);
+        }
+
+        .menu a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover {
+            color: var(--orange);
+        }
+
+        .hero-content {
+            width: min(100% - 48px, 1520px);
+            margin: auto;
+            padding: 100px 0 48px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 24px;
+            padding: 10px 16px;
+            background: rgba(25, 25, 25, 0.78);
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 7px;
+        }
+
+        .hero h1 {
+            max-width: 1000px;
+            font-size: clamp(56px, 7vw, 104px);
+            font-weight: 900;
+            line-height: 0.88;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-highlight {
+            display: inline-block;
+            padding: 3px 14px 8px;
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .title-orange {
+            display: block;
+            margin-top: 8px;
+            color: var(--orange);
+        }
+
+        .quick-links {
+            display: grid;
+            width: min(100% - 48px, 1440px);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            margin: 0 auto 80px;
+        }
+
+        .quick-card {
+            display: flex;
+            min-height: 112px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(15, 15, 15, 0.92);
+            color: var(--white);
+            text-decoration: none;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--orange);
+        }
+
+        .quick-card h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .quick-card p {
+            color: var(--muted);
             font-size: 15px;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* Effetto al passaggio del mouse sui bottoni */
-        .nav-btn:hover {
-            background-color: #ffffff;
-            color: #111111;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        .arrow {
+            flex: 0 0 auto;
+            color: var(--orange);
+            font-size: 28px;
         }
 
-       /* Contenuto Centrale */
-       .main-content {
-            text-align: left;
-            color: #ffffff;
-            margin-bottom: auto;
-            margin-top: auto;
-    
-}
-
-        .main-content h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        .main-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Responsive per smartphone */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .navbar {
+                padding-right: 24px;
+                padding-left: 24px;
+            }
+
+            .menu {
+                gap: 16px;
+            }
+
+            .menu a {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .quick-links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin-bottom: 40px;
+            }
+
+            .hero-content {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 100svh;
+                background-position: center;
+            }
+
+            .navbar {
+                min-height: auto;
                 flex-direction: column;
-                gap: 15px;
+                gap: 18px;
+                padding: 16px;
             }
-            .menu-buttons {
-                flex-direction: column;
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .logo-mark {
+                font-size: 36px;
+            }
+
+            .menu {
                 width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
             }
-            .nav-btn {
-                text-align: center;
-                width: 100%;
+
+            .menu a {
+                font-size: 9px;
+                letter-spacing: 1.5px;
             }
-            .main-content h1 {
-                font-size: 2rem;
+
+            .hero-content {
+                width: min(100% - 36px, 1520px);
+                padding: 72px 0 40px;
             }
-            .main-content p,
-            .main-content h1 {
-                color: #ffffff;
+
+            .eyebrow {
+                margin-bottom: 20px;
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .hero h1 {
+                font-size: clamp(46px, 12vw, 72px);
+                letter-spacing: -2px;
+                line-height: 0.95;
+            }
+
+            .title-highlight {
+                padding: 2px 8px 6px;
+            }
+
+            .quick-links {
+                width: min(100% - 36px, 1440px);
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .quick-card {
+                min-height: 90px;
+                padding: 18px 20px;
+            }
+
+            .quick-card h2 {
+                font-size: 18px;
+            }
+
+            .quick-card p {
+                font-size: 13px;
             }
         }
     </style>
 </head>
+
 <body>
+    <main class="hero">
+        <header class="navbar">
+            <a class="logo" href="#" aria-label="Brama Auto, pagina iniziale">
+                <span class="logo-mark">B</span>
+                <span>BRAMA <span class="logo-auto">AUTO</span></span>
+            </a>
 
-    <div class="hero-background">
-        
-        <!-- Menu con 4 Bottoni -->
-        <nav class="navbar">
-            <div class="logo"> <span><h1>B</h1></span></div>
-            <div class="logo">BRAMA <span> AUTO</span></div>
-            <div class="menu-buttons">
-                <a href="#usato" class="nav-btn">AUTO USATE</a>
-                <a href="#auto-km-zero" class="nav-btn">AUTO KM ZERO</a>
-                <a href="#vendi" class="nav-btn">VENDI QUI LA TUA AUTO</a>
-                <a href="#chi-siamo" class="nav-btn">CHI SIAMO</a>
-            </div>
+            <nav class="menu" aria-label="Navigazione principale">
+                <a href="#usato">AUTO USATE</a>
+                <a href="#km-zero">AUTO KM ZERO</a>
+                <a href="#chi-siamo">CHI SIAMO</a>
+            </nav>
+        </header>
+
+        <section class="hero-content">
+            <p class="eyebrow">AUTOSALONE MULTIMARCA - MASERÀ DI PADOVA</p>
+
+            <h1>
+                <span class="title-line">LA TUA</span>
+                <span class="title-line">PROSSIMA <span class="title-highlight">AUTO</span></span>
+                <span class="title-orange">È QUI.</span>
+            </h1>
+        </section>
+
+        <nav class="quick-links" aria-label="Scopri Brama Auto">
+            <a class="quick-card" id="usato" href="#usato">
+                <span>
+                    <h2>Auto usate</h2>
+                    <p>Usato selezionato e garantito</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" id="km-zero" href="#km-zero">
+                <span>
+                    <h2>Auto km zero</h2>
+                    <p>Nuove, pronta consegna</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" id="chi-siamo" href="#chi-siamo">
+                <span>
+                    <h2>Chi siamo</h2>
+                    <p>La nostra storia e i contatti</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" id="vendi" href="mailto:amministrazione@bramauto.it">
+                <span>
+                    <h2>Vendi qui la tua auto</h2>
+                    <p>Valutiamo il tuo usato</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
         </nav>
-
-        <!-- Testo centrale di benvenuto -->
-        <div class="main-content" >
-            <p>AUTOSALONE MULTIMARCA - MASERA' DI PADOVA</p>
-            <h1>Scegli la tua prossima auto</h1>
-            <p>Qualità, affidabilità e passione al tuo servizio.</p>
-        </div>
-
-    </div>
-
+    </main>
 </body>
 </html>
