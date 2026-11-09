@@ -137,6 +137,51 @@
         .map-link { display: inline-block; margin-top: 16px; color: var(--orange); font-size: 14px; text-decoration: none; }
         .map-link:hover { text-decoration: underline; }
 
+        .legal-section {
+            width: min(100% - 48px, 1520px);
+            margin: 0 auto;
+            padding: 0 0 90px;
+        }
+        .legal-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .legal-tab {
+            display: inline-flex;
+            min-height: 52px;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 22px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: #c5c5c8;
+            cursor: pointer;
+            font: inherit;
+            font-size: 15px;
+            transition: color .2s ease, border-color .2s ease, background .2s ease;
+        }
+        .legal-tab:hover { border-color: var(--orange); color: var(--white); }
+        .legal-tab[aria-selected="true"] {
+            border-color: var(--orange);
+            background: rgba(255, 101, 0, .12);
+            color: var(--white);
+        }
+        .legal-tab-icon { color: currentColor; font-size: 17px; line-height: 1; }
+        .legal-panel {
+            padding: 40px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+        }
+        .legal-panel[hidden] { display: none; }
+        .legal-panel h2 { margin: 0 0 28px; font-size: 26px; letter-spacing: -.5px; }
+        .legal-copy { color: #e1e1e4; font-size: 17px; line-height: 1.65; }
+        .legal-copy p { margin: 0 0 18px; }
+        .legal-copy p:last-child { margin-bottom: 0; }
+        .legal-placeholder { color: var(--muted); }
+
         .site-footer { padding: 30px max(5%, calc((100% - 1520px) / 2)); border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
         .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
 
@@ -152,7 +197,7 @@
             .menu { width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px 18px; }
             .menu a { font-size: 9px; letter-spacing: 1.5px; }
             .page-heading { min-height: 240px; }
-            .heading-inner, .company-section { width: min(100% - 36px, 1520px); }
+            .heading-inner, .company-section, .legal-section { width: min(100% - 36px, 1520px); }
             .heading-inner { padding: 55px 0; }
             .eyebrow { margin-bottom: 18px; font-size: 10px; letter-spacing: 4px; }
             h1 { font-size: clamp(46px, 13vw, 64px); letter-spacing: -2px; }
@@ -161,6 +206,12 @@
             .address { font-size: 15px; }
             .details li { font-size: 14px; }
             .map-frame { min-height: 340px; }
+            .legal-section { padding-bottom: 60px; }
+            .legal-tabs { gap: 8px; margin-bottom: 24px; }
+            .legal-tab { flex: 1 1 100%; justify-content: flex-start; min-height: 48px; padding: 0 16px; }
+            .legal-panel { padding: 26px 22px; }
+            .legal-panel h2 { font-size: 22px; }
+            .legal-copy { font-size: 15px; }
             .footer-inner { flex-direction: column; }
         }
     </style>
@@ -217,6 +268,40 @@
                 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Via+Enrico+Bernardi+2%2C+35020+Maser%C3%A0+di+Padova" target="_blank" rel="noopener noreferrer">Apri il percorso in Google Maps ↗</a>
             </div>
         </section>
+
+        <section class="legal-section" aria-label="Informazioni legali">
+            <div class="legal-tabs" role="tablist" aria-label="Informazioni legali">
+                <button class="legal-tab" id="tab-terms" type="button" role="tab" aria-selected="true" aria-controls="panel-terms" tabindex="0">
+                    <span class="legal-tab-icon" aria-hidden="true">▤</span>Condizioni del Servizio
+                </button>
+                <button class="legal-tab" id="tab-privacy" type="button" role="tab" aria-selected="false" aria-controls="panel-privacy" tabindex="-1">
+                    <span class="legal-tab-icon" aria-hidden="true">♧</span>Privacy Policy
+                </button>
+                <button class="legal-tab" id="tab-cookies" type="button" role="tab" aria-selected="false" aria-controls="panel-cookies" tabindex="-1">
+                    <span class="legal-tab-icon" aria-hidden="true">◉</span>Cookie Policy
+                </button>
+            </div>
+
+            <article class="legal-panel" id="panel-terms" role="tabpanel" aria-labelledby="tab-terms" tabindex="0">
+                <h2>Condizioni del Servizio</h2>
+                <div class="legal-copy">
+                    <p>Le presenti condizioni regolano l'utilizzo del sito web di BRAMA AUTO SRL e i rapporti precontrattuali con gli utenti.</p>
+                    <p>1. Oggetto — Il sito ha finalità di presentazione del parco auto disponibile presso BRAMA AUTO SRL. Le informazioni su veicoli, prezzi e disponibilità sono da considerarsi indicative fino a conferma scritta da parte del venditore.</p>
+                    <p>2. Annunci — Le schede dei veicoli riportano dati forniti in buona fede; eventuali errori materiali non sono imputabili a BRAMA AUTO SRL. Le fotografie possono riferirsi alla vettura effettiva o essere illustrative.</p>
+                    <p>3. Richieste e preventivi — L'invio di una richiesta tramite il sito (via email o WhatsApp) non costituisce impegno contrattuale né per il cliente né per il venditore. I preventivi di finanziamento sono indicativi e subordinati all'approvazione della società finanziaria.</p>
+                    <p>4. Prezzi — I prezzi pubblicati sono da intendersi IVA inclusa ove applicabile, passaggio di proprietà escluso salvo diversa indicazione.</p>
+                    <p>5. Foro competente — Per ogni controversia è competente il Foro di Padova.</p>
+                </div>
+            </article>
+            <article class="legal-panel" id="panel-privacy" role="tabpanel" aria-labelledby="tab-privacy" tabindex="0" hidden>
+                <h2>Privacy Policy</h2>
+                <p class="legal-copy legal-placeholder">Testo in arrivo: aggiungeremo qui l'informativa sulla privacy.</p>
+            </article>
+            <article class="legal-panel" id="panel-cookies" role="tabpanel" aria-labelledby="tab-cookies" tabindex="0" hidden>
+                <h2>Cookie Policy</h2>
+                <p class="legal-copy legal-placeholder">Testo in arrivo: aggiungeremo qui l'informativa sui cookie.</p>
+            </article>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -225,5 +310,36 @@
             <span>Maserà di Padova</span>
         </div>
     </footer>
+
+    <script>
+        const legalTabs = Array.from(document.querySelectorAll('[role="tab"]'));
+        const legalPanels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+        function selectLegalTab(tab) {
+            legalTabs.forEach((item) => {
+                const selected = item === tab;
+                item.setAttribute('aria-selected', String(selected));
+                item.tabIndex = selected ? 0 : -1;
+            });
+
+            legalPanels.forEach((panel) => {
+                panel.hidden = panel.id !== tab.getAttribute('aria-controls');
+            });
+        }
+
+        legalTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => selectLegalTab(tab));
+            tab.addEventListener('keydown', (event) => {
+                let nextIndex = index;
+                if (event.key === 'ArrowRight') nextIndex = (index + 1) % legalTabs.length;
+                else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + legalTabs.length) % legalTabs.length;
+                else return;
+
+                event.preventDefault();
+                legalTabs[nextIndex].focus();
+                selectLegalTab(legalTabs[nextIndex]);
+            });
+        });
+    </script>
 </body>
 </html>
