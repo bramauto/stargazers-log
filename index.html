@@ -297,6 +297,132 @@
                 font-size: 13px;
             }
         }
+        /* Fascia di testo scorrevole sotto il menu */
+.ticker {
+    overflow: hidden;
+    border-top: 1px solid #292a30;
+    border-bottom: 1px solid #292a30;
+    background: #101113;
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 32s linear infinite;
+}
+
+.ticker-text {
+    flex-shrink: 0;
+    padding: 18px 0;
+    color: #858589;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Sezione "Perché Brama Auto" */
+.why-us {
+    padding: 140px max(5%, calc((100% - 1520px) / 2));
+    background: #0b0c0e;
+}
+
+.why-us-label {
+    margin-bottom: 24px;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.why-us h2 {
+    max-width: 760px;
+    margin-bottom: 64px;
+    color: var(--white);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 600;
+    line-height: 1.12;
+}
+
+.benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.benefit-card {
+    min-height: 250px;
+    padding: 40px;
+    border: 1px solid #292a30;
+    background: #141519;
+}
+
+.benefit-card:nth-child(2) {
+    border-color: #71320c;
+}
+
+.benefit-icon {
+    display: block;
+    margin-bottom: 28px;
+    color: var(--orange);
+    font-size: 34px;
+    line-height: 1;
+}
+
+.benefit-card h3 {
+    margin-bottom: 20px;
+    color: var(--white);
+    font-size: 22px;
+}
+
+.benefit-card p {
+    color: #a9a9ad;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .ticker-text {
+        padding: 14px 0;
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .why-us {
+        padding: 90px 24px;
+    }
+
+    .why-us h2 {
+        margin-bottom: 36px;
+    }
+
+    .benefit-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .benefit-card {
+        min-height: auto;
+        padding: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+    }
+}
     </style>
 </head>
 
@@ -358,6 +484,40 @@
                 <span class="arrow" aria-hidden="true">→</span>
             </a>
         </nav>
+        <div class="ticker" aria-label="I servizi di Brama Auto">
+    <div class="ticker-track">
+        <span class="ticker-text">
+            PRONTA CONSEGNA · FINANZIAMENTI PERSONALIZZATI · BRAMA AUTO · AUTO USATE SELEZIONATE · KM 0 PRONTA CONSEGNA ·&nbsp;
+        </span>
+        <span class="ticker-text" aria-hidden="true">
+            · FINANZIAMENTI PERSONALIZZATI · BRAMA AUTO · AUTO USATE SELEZIONATE · KM 0 PRONTA CONSEGNA 
+        </span>
+    </div>
+</div>
+        <section class="why-us" id="chi-siamo">
+    <p class="why-us-label">Perché Brama Auto</p>
+    <h2>Un autosalone di fiducia, a due passi da Padova.</h2>
+
+    <div class="benefit-cards">
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">♢</span>
+            <h3>Usato garantito</h3>
+            <p>Ogni vettura usata è controllata e selezionata dal nostro staff prima della messa in vendita.</p>
+        </article>
+
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">€</span>
+            <h3>Finanziamenti su misura</h3>
+            <p>Preventivi di finanziamento personalizzati, anche con anticipo zero. Risposta rapida.</p>
+        </article>
+
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">⌕</span>
+            <h3>Pronta consegna</h3>
+            <p>Auto KM 0 disponibili subito in sede, con sconti concreti rispetto al listino ufficiale.</p>
+        </article>
+    </div>
+</section>
     </main>
 </body>
 </html>
