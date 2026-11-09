@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0c0e">
+    <meta name="theme-color" content="#171717">
     <meta name="description" content="Scopri Brama Auto: vieni a trovarci a Maserà di Padova o contattaci per informazioni sulle nostre auto usate e a km zero.">
     <title>Chi siamo | Brama Auto</title>
     <style>
         :root {
-            color-scheme: dark;
             --orange: #ff6500;
-            --white: #f5f5f7;
-            --background: #0b0c0e;
+            --white: #ffffff;
+            --dark: #111111;
+            --muted: #b8b8b8;
             --panel: #141519;
-            --muted: #858589;
             --line: #292a30;
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             min-width: 320px;
             min-height: 100vh;
-            margin: 0;
-            background: var(--background);
             color: var(--white);
             font-family: Arial, Helvetica, sans-serif;
+            background: var(--dark);
         }
         a { color: inherit; }
 
         .navbar {
             display: flex;
-            min-height: 79px;
+            width: 100%;
+            min-height: 84px;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            padding: 12px max(5%, calc((100% - 1520px) / 2));
-            border-bottom: 1px solid #222328;
-            background: #0b0c0e;
+            padding: 16px max(5%, calc((100% - 1520px) / 2));
+            border-bottom: 1px solid rgba(255, 255, 255, .12);
+            background: #0f0f0f;
         }
         .logo {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 14px;
             color: var(--white);
@@ -56,8 +55,7 @@
         .menu a {
             padding: 10px 0;
             border-bottom: 2px solid transparent;
-            color: #c5c5c8;
-            font-family: 'Courier New', monospace;
+            color: rgba(255, 255, 255, .8);
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 4px;
@@ -67,8 +65,8 @@
         .menu a:hover, .menu a[aria-current="page"] { border-color: var(--orange); color: var(--orange); }
 
         .page-heading {
-            min-height: 316px;
             display: flex;
+            min-height: 316px;
             align-items: center;
             border-bottom: 1px solid var(--line);
             background: #0e0f11;
@@ -77,14 +75,12 @@
         .eyebrow, .section-label {
             margin: 0 0 24px;
             color: var(--orange);
-            font-family: 'Courier New', monospace;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 7px;
             text-transform: uppercase;
         }
         h1 {
-            margin: 0;
             color: var(--white);
             font-size: clamp(54px, 6vw, 72px);
             font-weight: 900;
@@ -101,26 +97,15 @@
             margin: 0 auto;
             padding: 70px 0 90px;
         }
-        .company-card {
-            align-self: start;
-            padding: 40px;
-            border: 1px solid var(--line);
-            background: var(--panel);
-        }
+        .company-card { align-self: start; padding: 40px; border: 1px solid var(--line); background: var(--panel); }
         .company-card .section-label { margin-bottom: 34px; font-size: 12px; letter-spacing: 5px; }
         .company-card h2 { margin: 0 0 32px; font-size: clamp(28px, 3vw, 36px); letter-spacing: -1px; }
-        .address {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 22px;
-            font-size: 17px;
-            line-height: 1.5;
-        }
+        .address { display: flex; gap: 16px; margin-bottom: 22px; font-size: 17px; line-height: 1.5; }
         .icon { flex: 0 0 20px; color: var(--orange); font-size: 21px; line-height: 1.2; text-align: center; }
         .hours { color: var(--muted); }
         .hours strong { display: block; margin-bottom: 2px; color: #c4c4c7; font-weight: 400; }
         .hours span { display: block; color: var(--white); }
-        .details { margin: 16px 0 0; padding: 0; list-style: none; }
+        .details { margin: 16px 0 0; list-style: none; }
         .details li {
             display: flex;
             justify-content: space-between;
@@ -137,11 +122,7 @@
         .map-link { display: inline-block; margin-top: 16px; color: var(--orange); font-size: 14px; text-decoration: none; }
         .map-link:hover { text-decoration: underline; }
 
-        .legal-section {
-            width: min(100% - 48px, 1520px);
-            margin: 0 auto;
-            padding: 0 0 90px;
-        }
+        .legal-section { width: min(100% - 48px, 1520px); margin: 0 auto; padding: 0 0 90px; }
         .legal-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
         .legal-tab {
             display: inline-flex;
@@ -152,68 +133,34 @@
             padding: 0 22px;
             border: 1px solid var(--line);
             background: transparent;
-            color: #c5c5c8;
+            color: var(--muted);
             cursor: pointer;
             font: inherit;
             font-size: 15px;
+            font-weight: 600;
             transition: color .2s ease, border-color .2s ease, background .2s ease;
         }
-        .legal-tab:hover { border-color: var(--orange); color: var(--white); }
-        .legal-tab[aria-selected="true"] { border-color: var(--orange); background: rgba(255, 101, 0, .12); color: var(--white); }
+        .legal-tab:hover, .legal-tab:focus-visible { border-color: var(--orange); color: var(--white); }
+        .legal-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+        .legal-tab[aria-selected="true"] { border-color: var(--orange); background: rgba(255, 101, 0, .14); color: var(--white); }
         .legal-tab-icon { color: currentColor; font-size: 17px; line-height: 1; }
         .legal-panel { padding: 40px; border: 1px solid var(--line); background: var(--panel); }
         .legal-panel[hidden] { display: none; }
-        .legal-panel h2 { margin: 0 0 28px; font-size: 26px; letter-spacing: -.5px; }
+        .legal-panel h2 { margin: 0 0 28px; color: var(--white); font-size: 26px; letter-spacing: -.5px; }
         .legal-copy { color: #e1e1e4; font-size: 17px; line-height: 1.65; }
         .legal-copy p { margin: 0 0 18px; }
         .legal-copy p:last-child { margin-bottom: 0; }
         .legal-copy strong { font-weight: 700; }
 
-        /* Piè di pagina, ripreso dal layout della home */
-        .site-footer {
-            border-top: 1px solid var(--line);
-            padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px;
-            background: #101113;
-            color: var(--white);
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 48px;
-            padding-bottom: 40px;
-        }
-        .footer-brand p {
-            max-width: 380px;
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-        .footer-heading {
-            margin: 0 0 18px;
-            color: var(--white);
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        /* Piè di pagina ripreso dalla home */
+        .site-footer { border-top: 1px solid var(--line); padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px; background: #101113; color: var(--white); }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 40px; }
+        .footer-brand p { max-width: 380px; margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+        .footer-heading { margin: 0 0 18px; color: var(--white); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
         .footer-links { display: grid; gap: 12px; }
-        .footer-links a, .footer-contact p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.6;
-            text-decoration: none;
-        }
+        .footer-links a, .footer-contact p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; text-decoration: none; }
         .footer-links a:hover { color: var(--orange); }
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 13px;
-        }
+        .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); color: #858589; font-size: 13px; }
 
         @media (max-width: 800px) {
             .company-section { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 60px; }
@@ -359,12 +306,8 @@
                     <span class="logo-mark">B</span>
                     <span>BRAMA <span class="logo-auto">AUTO</span></span>
                 </a>
-                <p>
-                    Auto usate selezionate, vetture a km zero e consulenza su misura.
-                    Ti aspettiamo a Maserà di Padova.
-                </p>
+                <p>Auto usate selezionate, vetture a km zero e consulenza su misura. Ti aspettiamo a Maserà di Padova.</p>
             </div>
-
             <div class="footer-contact">
                 <h2 class="footer-heading">CONTATTI</h2>
                 <div class="footer-links" aria-label="Contatti Brama Auto">
@@ -373,7 +316,6 @@
                     <p><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></p>
                 </div>
             </div>
-
             <div>
                 <h2 class="footer-heading">NAVIGAZIONE</h2>
                 <nav class="footer-links" aria-label="Link del piè di pagina">
@@ -384,7 +326,6 @@
                 </nav>
             </div>
         </div>
-
         <div class="footer-bottom">
             <span>© 2026 Brama Auto. Tutti i diritti riservati.</span>
             <span>Maserà di Padova</span>
@@ -401,7 +342,6 @@
                 item.setAttribute('aria-selected', String(selected));
                 item.tabIndex = selected ? 0 : -1;
             });
-
             legalPanels.forEach((panel) => {
                 panel.hidden = panel.id !== tab.getAttribute('aria-controls');
             });
@@ -414,7 +354,6 @@
                 if (event.key === 'ArrowRight') nextIndex = (index + 1) % legalTabs.length;
                 else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + legalTabs.length) % legalTabs.length;
                 else return;
-
                 event.preventDefault();
                 legalTabs[nextIndex].focus();
                 selectLegalTab(legalTabs[nextIndex]);
