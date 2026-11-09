@@ -142,12 +142,7 @@
             margin: 0 auto;
             padding: 0 0 90px;
         }
-        .legal-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
+        .legal-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
         .legal-tab {
             display: inline-flex;
             min-height: 52px;
@@ -164,17 +159,9 @@
             transition: color .2s ease, border-color .2s ease, background .2s ease;
         }
         .legal-tab:hover { border-color: var(--orange); color: var(--white); }
-        .legal-tab[aria-selected="true"] {
-            border-color: var(--orange);
-            background: rgba(255, 101, 0, .12);
-            color: var(--white);
-        }
+        .legal-tab[aria-selected="true"] { border-color: var(--orange); background: rgba(255, 101, 0, .12); color: var(--white); }
         .legal-tab-icon { color: currentColor; font-size: 17px; line-height: 1; }
-        .legal-panel {
-            padding: 40px;
-            border: 1px solid var(--line);
-            background: var(--panel);
-        }
+        .legal-panel { padding: 40px; border: 1px solid var(--line); background: var(--panel); }
         .legal-panel[hidden] { display: none; }
         .legal-panel h2 { margin: 0 0 28px; font-size: 26px; letter-spacing: -.5px; }
         .legal-copy { color: #e1e1e4; font-size: 17px; line-height: 1.65; }
@@ -182,13 +169,60 @@
         .legal-copy p:last-child { margin-bottom: 0; }
         .legal-copy strong { font-weight: 700; }
 
-        .site-footer { padding: 30px max(5%, calc((100% - 1520px) / 2)); border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-        .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+        /* Piè di pagina, ripreso dal layout della home */
+        .site-footer {
+            border-top: 1px solid var(--line);
+            padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px;
+            background: #101113;
+            color: var(--white);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 40px;
+        }
+        .footer-brand p {
+            max-width: 380px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .footer-heading {
+            margin: 0 0 18px;
+            color: var(--white);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .footer-links { display: grid; gap: 12px; }
+        .footer-links a, .footer-contact p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: var(--orange); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+        }
 
         @media (max-width: 800px) {
             .company-section { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 60px; }
             .map-frame { min-height: 400px; }
             .page-heading { min-height: 270px; }
+        }
+        @media (max-width: 700px) {
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; }
         }
         @media (max-width: 600px) {
             .navbar { flex-direction: column; gap: 14px; padding: 14px 18px; }
@@ -212,7 +246,7 @@
             .legal-panel { padding: 26px 22px; }
             .legal-panel h2 { font-size: 22px; }
             .legal-copy { font-size: 15px; }
-            .footer-inner { flex-direction: column; }
+            .site-footer { padding: 40px 24px 20px; }
         }
     </style>
 </head>
@@ -319,7 +353,39 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale">
+                    <span class="logo-mark">B</span>
+                    <span>BRAMA <span class="logo-auto">AUTO</span></span>
+                </a>
+                <p>
+                    Auto usate selezionate, vetture a km zero e consulenza su misura.
+                    Ti aspettiamo a Maserà di Padova.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h2 class="footer-heading">CONTATTI</h2>
+                <div class="footer-links" aria-label="Contatti Brama Auto">
+                    <p>BRAMA AUTO SRL - Via Enrico Bernardi 2, 35020 Maserà di Padova (PD)</p>
+                    <p><a href="tel:+393298546368">+39 329 8546368</a></p>
+                    <p><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="footer-heading">NAVIGAZIONE</h2>
+                <nav class="footer-links" aria-label="Link del piè di pagina">
+                    <a href="index.html#usato">Auto Usate</a>
+                    <a href="index.html#km-zero">Auto KM Zero</a>
+                    <a href="chi-siamo.html">Chi Siamo</a>
+                    <a href="index.html#vendi">Vendi qui la tua auto</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
             <span>© 2026 Brama Auto. Tutti i diritti riservati.</span>
             <span>Maserà di Padova</span>
         </div>
