@@ -424,6 +424,78 @@
         animation: none;
     }
 }
+        /* Piè di pagina */
+.site-footer {
+    border-top: 1px solid #292a30;
+    padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px;
+    background: #101113;
+    color: var(--white);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    max-width: 380px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footer-heading {
+    margin-bottom: 18px;
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: grid;
+    gap: 12px;
+}
+
+.footer-links a,
+.footer-contact p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid #292a30;
+    color: #858589;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    .site-footer {
+        padding: 40px 24px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
     </style>
 </head>
 
@@ -520,5 +592,41 @@
     </div>
 </section>
     </main>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a class="logo" href="#" aria-label="Brama Auto, pagina iniziale">
+                <span class="logo-mark">B</span>
+                <span>BRAMA <span class="logo-auto">AUTO</span></span>
+            </a>
+            <p>
+                Auto usate selezionate, vetture a km zero e consulenza su misura.
+                Ti aspettiamo a Maserà di Padova.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="footer-heading">Link utili</h2>
+            <nav class="footer-links" aria-label="Link del piè di pagina">
+                <a href="#usato">Auto usate</a>
+                <a href="#km-zero">Auto km zero</a>
+                <a href="#chi-siamo">Chi siamo</a>
+                <a href="#vendi">Vendi la tua auto</a>
+            </nav>
+        </div>
+
+        <div class="footer-contact">
+            <h2 class="footer-heading">Contatti</h2>
+            <p>Maserà di Padova (PD)</p>
+            <p>Inserisci qui il tuo numero di telefono</p>
+            <p>Inserisci qui la tua email</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Brama Auto. Tutti i diritti riservati.</span>
+        <span>Maserà di Padova</span>
+    </div>
+</footer>
 </body>
 </html>
