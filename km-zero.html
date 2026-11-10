@@ -1,1 +1,662 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171717">
+    <title>Brama Auto - La tua prossima auto è qui, auto km zero in pronta consegna</title>
 
+    <style>
+        :root {
+            --orange: #ff6500;
+            --white: #ffffff;
+            --dark: #111111;
+            --muted: #b8b8b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--dark);
+        }
+
+        .hero {
+            position: relative;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.48),
+                    rgba(0, 0, 0, 0.18) 58%,
+                    rgba(0, 0, 0, 0.35)
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.86),
+                    transparent 65%
+                ),
+                url("PARCO.jpg") center 55% / cover no-repeat;
+        }
+
+        .navbar {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: 100%;
+            min-height: 84px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 16px max(5%, calc((100% - 1520px) / 2));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(15, 15, 15, 0.72);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--white);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo-mark {
+            color: var(--orange);
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .logo-auto {
+            color: var(--orange);
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: clamp(20px, 3vw, 48px);
+        }
+
+        .menu a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover {
+            color: var(--orange);
+        }
+
+        .hero-content {
+            width: min(100% - 48px, 1520px);
+            margin: auto;
+            padding: 100px 0 48px;
+        }
+
+        .eyebrow {
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            margin-bottom: 24px;
+            padding: 10px 16px;
+            background: rgba(25, 25, 25, 0.78);
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 7px;
+        }
+
+        .hero h1 {
+            max-width: 700px;
+            font-size: clamp(48px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 0.88;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-highlight {
+            padding: 3px 14px 8px;
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .title-orange {
+            display: block;
+            margin-top: 8px;
+            color: var(--orange);
+        }
+
+        .quick-links {
+            display: grid;
+            width: min(100% - 48px, 1440px);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            margin: 0 auto 80px;
+        }
+
+        .quick-card {
+            display: flex;
+            min-height: 112px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(15, 15, 15, 0.92);
+            color: var(--white);
+            text-decoration: none;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--orange);
+        }
+
+        .quick-card h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .quick-card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .arrow {
+            flex: 0 0 auto;
+            color: var(--orange);
+            font-size: 28px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding-right: 24px;
+                padding-left: 24px;
+            }
+
+            .menu {
+                gap: 16px;
+            }
+
+            .menu a {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .quick-links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin-bottom: 40px;
+            }
+
+            .hero-content {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 100svh;
+                background-position: center;
+            }
+
+            .navbar {
+                min-height: auto;
+                flex-direction: column;
+                gap: 18px;
+                padding: 16px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .logo-mark {
+                font-size: 36px;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 20px;
+            }
+
+            .menu a {
+                font-size: 9px;
+                letter-spacing: 1.5px;
+            }
+
+            .hero-content {
+                width: min(100% - 36px, 1520px);
+                padding: 72px 0 40px;
+            }
+
+            .eyebrow {
+                margin-bottom: 20px;
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .hero h1 {
+                font-size: clamp(46px, 12vw, 72px);
+                letter-spacing: -2px;
+                line-height: 0.95;
+            }
+
+            .title-highlight {
+                padding: 2px 8px 6px;
+            }
+
+            .quick-links {
+                width: min(100% - 36px, 1440px);
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .quick-card {
+                min-height: 90px;
+                padding: 18px 20px;
+            }
+
+            .quick-card h2 {
+                font-size: 18px;
+            }
+
+            .quick-card p {
+                font-size: 13px;
+            }
+        }
+        /* Fascia di testo scorrevole sotto il menu */
+.ticker {
+    overflow: hidden;
+    border-top: 1px solid #292a30;
+    border-bottom: 1px solid #292a30;
+    background: #101113;
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 32s linear infinite;
+}
+
+.ticker-text {
+    flex-shrink: 0;
+    padding: 18px 0;
+    color: #858589;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Sezione "Perché Brama Auto" */
+.why-us {
+    padding: 140px max(5%, calc((100% - 1520px) / 2));
+    background: #0b0c0e;
+}
+
+.why-us-label {
+    margin-bottom: 24px;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.why-us h2 {
+    max-width: 760px;
+    margin-bottom: 64px;
+    color: var(--white);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 600;
+    line-height: 1.12;
+}
+
+.benefit-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.benefit-card {
+    min-height: 250px;
+    padding: 40px;
+    border: 1px solid #292a30;
+    background: #141519;
+    transition: border-color 0.2s ease;
+}
+
+.benefit-card:hover {
+    border-color: var(--orange);
+}
+
+.benefit-icon {
+    display: block;
+    margin-bottom: 28px;
+    color: var(--orange);
+    font-size: 34px;
+    line-height: 1;
+}
+
+.benefit-card h3 {
+    margin-bottom: 20px;
+    color: var(--white);
+    font-size: 22px;
+}
+
+.benefit-card p {
+    color: #a9a9ad;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .ticker-text {
+        padding: 14px 0;
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .why-us {
+        padding: 90px 24px;
+    }
+
+    .why-us h2 {
+        margin-bottom: 36px;
+    }
+
+    .benefit-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .benefit-card {
+        min-height: auto;
+        padding: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+        animation: none;
+    }
+}
+        /* Piè di pagina */
+.site-footer {
+    border-top: 1px solid #292a30;
+    padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px;
+    background: #101113;
+    color: var(--white);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    max-width: 380px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footer-heading {
+    margin-bottom: 18px;
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: grid;
+    gap: 12px;
+}
+
+.footer-links a,
+.footer-contact p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid #292a30;
+    color: #858589;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    .site-footer {
+        padding: 40px 24px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <main class="hero">
+        <header class="navbar">
+            <a class="logo" href="#" aria-label="Brama Auto, pagina iniziale">
+                <span class="logo-mark">B</span>
+                <span>BRAMA AUTO</span>
+            </a>
+
+            <nav class="menu" aria-label="Navigazione principale">
+                <a href="usato.html">AUTO USATE</a>
+                <a href="km-zero.html">AUTO KM ZERO</a>
+                <a href="chi-siamo.html">CHI SIAMO</a>
+            </nav>
+        </header>
+
+        <section class="hero-content">
+            <p class="eyebrow">AUTOSALONE MULTIMARCA - LE NOSTRE PROPOSTE KM ZERO</p>
+
+            <h1>
+                <span class="title-line">CERCA NEI MARCHI</span>
+            </h1>
+        </section>
+
+        <nav class="quick-links" aria-label="Scopri Brama Auto">
+            <a class="quick-card" id="usato" href="#ALFA-ROMEO">
+                <span>
+                    <h2>ALFA ROMEO</h2>
+                    <p>JUNIOR E TONALE</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" id="km-zero" href="#FIAT">
+                <span>
+                    <h2>FIAT</h2>
+                    <p>PANDA, GRANDE PANDA E ALTRO</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" href="#JEEP">
+                <span>
+                    <h2>JEEP</h2>
+                    <p>AVENGER, COMPASS, RENEGADE</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+
+            <a class="quick-card" id="vendi" href="#OPEL">
+                <span>
+                    <h2>OPEL</h2>
+                    <p>ASTRA, CORSA, GRANDLAND</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          <p>
+                <a class="quick-card" id="vendi" href="#PEUGEOT">
+                <span>
+                    <h2>PEUGEOT</h2>
+                    <p>208, 308, 508, 2008, 3008, 5008</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+
+                <a class="quick-card" id="vendi" href="#CITROEN">
+                <span>
+                    <h2>CITROEN</h2>
+                    <p>C3, C4, C5, AIRCORSS</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+
+                <a class="quick-card" id="vendi" href="#OPEL">
+                <span>
+                    <h2>OPEL</h2>
+                    <p>ASTRA, CORSA, GRANDLAND</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+
+                <a class="quick-card" id="vendi" href="#VEICOLI COMMERCIALI">
+                <span>
+                    <h2>VEICOLI COMMERCIALI</h2>
+                    <p>DUCATO, JUMPER, MOVANO, SCUDO, RIFTER, E ALTRO</p>
+                </span>
+                <span class="arrow" aria-hidden="true">→</span>
+          </p>
+        </nav>
+        <div class="ticker" aria-label="I servizi di Brama Auto">
+    <div class="ticker-track">
+        <span class="ticker-text">
+            PRONTA CONSEGNA · FINANZIAMENTI PERSONALIZZATI · BRAMA AUTO · AUTO USATE SELEZIONATE · KM 0 PRONTA CONSEGNA ·&nbsp;
+        </span>
+        <span class="ticker-text" aria-hidden="true">
+            · FINANZIAMENTI PERSONALIZZATI · BRAMA AUTO · AUTO USATE SELEZIONATE · KM 0 PRONTA CONSEGNA 
+        </span>
+    </div>
+</div>
+        <section class="why-us" id="chi-siamo">
+    <p class="why-us-label">Perché Brama Auto</p>
+    <h2>Un autosalone di fiducia, a due passi da Padova.</h2>
+
+    <div class="benefit-cards">
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">♢</span>
+            <h3>Usato garantito</h3>
+            <p>Ogni vettura usata è controllata e selezionata dal nostro staff prima della messa in vendita.</p>
+        </article>
+
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">€</span>
+            <h3>Finanziamenti su misura</h3>
+            <p>Preventivi di finanziamento personalizzati, anche con anticipo zero. Risposta rapida.</p>
+        </article>
+
+        <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">⌕</span>
+            <h3>Pronta consegna</h3>
+            <p>Auto KM 0 disponibili subito in sede, con sconti concreti rispetto al listino ufficiale.</p>
+        </article>
+    </div>
+</section>
+    </main>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a class="logo" href="#" aria-label="Brama Auto, pagina iniziale">
+                <span class="logo-mark">B</span>
+                <span>BRAMA <span class="logo-auto">AUTO</span></span>
+            </a>
+            <p>
+                Auto usate selezionate, vetture a km zero e consulenza su misura.
+                Ti aspettiamo a Maserà di Padova.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <h2 class="footer-heading">CONTATTI</h2>
+            <nav class="footer-links" aria-label="Link del piè di pagina">
+                <p>BRAMA AUTO SRL - Via Enrico Bernardi 2,35020
+                                 Maserà di Padova(PD)</p>
+                <p>+39 329 8546368</p>
+                <p>commerciale@bramarent.it</p>
+            </nav>
+        </div>
+
+        <div>
+            <h2 class="footer-heading">NAVIGAZIONE</h2>
+            <nav class="footer-links" aria-label="Link del piè di pagina">
+            <a href="usato.html">Auto Usate</a>
+            <a href="km-zero.html">Auto KM Zero</a>
+            <a href="chi-siamo.html">Chi Siamo</a>
+            <a href="vendi.html">Vendi qui la tua auto</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Brama Auto. Tutti i diritti riservati.</span>
+        <span>Maserà di Padova</span>
+    </div>
+</footer>
+</body>
+</html>
