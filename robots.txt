@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bramauto.github.io/stargazers-log/sitemap.xml
