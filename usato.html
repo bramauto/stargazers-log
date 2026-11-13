@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#171717">
-    <meta name="description" content="Scopri Brama Auto: vieni a trovarci a Maserà di Padova o contattaci per informazioni sulle nostre auto usate e a km zero.">
+    <meta name="description" content="Auto usate Brama Auto: catalogo e richieste specifiche a Maserà di Padova.">
     <title>Auto usate in pronta consegna | Brama Auto</title>
     <style>
         :root {
@@ -72,7 +72,7 @@
             background: #0e0f11;
         }
         .heading-inner { width: min(100% - 48px, 1520px); margin: 0 auto; padding: 66px 0; }
-        .eyebrow, .section-label {
+        .eyebrow {
             margin: 0 0 24px;
             color: var(--orange);
             font-size: 13px;
@@ -89,70 +89,77 @@
             text-transform: uppercase;
         }
 
-        .company-section {
+        .catalogue {
             display: grid;
             width: min(100% - 48px, 1520px);
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             margin: 0 auto;
             padding: 70px 0 90px;
         }
-        .company-card { align-self: start; padding: 40px; border: 1px solid var(--line); background: var(--panel); }
-        .company-card .section-label { margin-bottom: 34px; font-size: 12px; letter-spacing: 5px; }
-        .company-card h2 { margin: 0 0 32px; font-size: clamp(28px, 3vw, 36px); letter-spacing: -1px; }
-        .address { display: flex; gap: 16px; margin-bottom: 22px; font-size: 17px; line-height: 1.5; }
-        .icon { flex: 0 0 20px; color: var(--orange); font-size: 21px; line-height: 1.2; text-align: center; }
-        .hours { color: var(--muted); }
-        .hours strong { display: block; margin-bottom: 2px; color: #c4c4c7; font-weight: 400; }
-        .hours span { display: block; color: var(--white); }
-        .details { margin: 16px 0 0; list-style: none; }
-        .details li {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 19px 0;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 16px;
-        }
-        .details li span:last-child { color: var(--white); text-align: right; }
-        .details a { text-decoration: none; }
-        .details a:hover { color: var(--orange); }
-        .map-frame { min-height: 500px; border: 0; background: #e8e8e8; }
-        .map-link { display: inline-block; margin-top: 16px; color: var(--orange); font-size: 14px; text-decoration: none; }
-        .map-link:hover { text-decoration: underline; }
-
-        .legal-section { width: min(100% - 48px, 1520px); margin: 0 auto; padding: 0 0 90px; }
-        .legal-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-        .legal-tab {
-            display: inline-flex;
-            min-height: 52px;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 0 22px;
+        .listing-card {
+            align-self: start;
+            padding: 40px;
             border: 1px solid var(--line);
-            background: transparent;
-            color: var(--muted);
-            cursor: pointer;
-            font: inherit;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color .2s ease, border-color .2s ease, background .2s ease;
+            background: var(--panel);
         }
-        .legal-tab:hover, .legal-tab:focus-visible { border-color: var(--orange); color: var(--white); }
-        .legal-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
-        .legal-tab[aria-selected="true"] { border-color: var(--orange); background: rgba(255, 101, 0, .14); color: var(--white); }
-        .legal-tab-icon { color: currentColor; font-size: 17px; line-height: 1; }
-        .legal-panel { padding: 40px; border: 1px solid var(--line); background: var(--panel); }
-        .legal-panel[hidden] { display: none; }
-        .legal-panel h2 { margin: 0 0 28px; color: var(--white); font-size: 26px; letter-spacing: -.5px; }
-        .legal-copy { color: #e1e1e4; font-size: 17px; line-height: 1.65; }
-        .legal-copy p { margin: 0 0 18px; }
-        .legal-copy p:last-child { margin-bottom: 0; }
-        .legal-copy strong { font-weight: 700; }
+        .listing-card .section-label {
+            margin-bottom: 34px;
+            color: var(--orange);
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        .listing-card h2 {
+            margin: 0 0 28px;
+            font-size: clamp(28px, 3vw, 36px);
+            letter-spacing: -1px;
+        }
+        .listing-card p {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        .cta-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: var(--orange);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .cta-link:hover { text-decoration: underline; }
 
-        /* Piè di pagina ripreso dalla home */
+        .request-banner {
+            width: min(100% - 48px, 1520px);
+            margin: 0 auto 90px;
+            padding: 40px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            text-align: center;
+        }
+        .request-banner p {
+            margin: 0 0 16px;
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+        }
+        .request-banner h2 {
+            font-size: clamp(32px, 4vw, 52px);
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+        .request-banner a {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 16px 28px;
+            background: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
         .site-footer { border-top: 1px solid var(--line); padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px; background: #101113; color: var(--white); }
         .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 40px; }
         .footer-brand p { max-width: 380px; margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
@@ -163,37 +170,26 @@
         .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); color: #858589; font-size: 13px; }
 
         @media (max-width: 800px) {
-            .company-section { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 60px; }
-            .map-frame { min-height: 400px; }
+            .catalogue { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 60px; }
             .page-heading { min-height: 270px; }
         }
         @media (max-width: 700px) {
-            .footer-content { grid-template-columns: 1fr; gap: 32px; }
-            .footer-bottom { flex-direction: column; }
-        }
-        @media (max-width: 600px) {
             .navbar { flex-direction: column; gap: 14px; padding: 14px 18px; }
             .logo { font-size: 18px; letter-spacing: 4px; }
             .logo-mark { font-size: 36px; }
             .menu { width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px 18px; }
             .menu a { font-size: 9px; letter-spacing: 1.5px; }
             .page-heading { min-height: 240px; }
-            .heading-inner, .company-section, .legal-section { width: min(100% - 36px, 1520px); }
+            .heading-inner, .catalogue, .request-banner { width: min(100% - 36px, 1520px); }
             .heading-inner { padding: 55px 0; }
             .eyebrow { margin-bottom: 18px; font-size: 10px; letter-spacing: 4px; }
             h1 { font-size: clamp(46px, 13vw, 64px); letter-spacing: -2px; }
-            .company-card { padding: 26px 22px; }
-            .company-card h2 { font-size: 27px; }
-            .address { font-size: 15px; }
-            .details li { font-size: 14px; }
-            .map-frame { min-height: 340px; }
-            .legal-section { padding-bottom: 60px; }
-            .legal-tabs { gap: 8px; margin-bottom: 24px; }
-            .legal-tab { flex: 1 1 100%; justify-content: flex-start; min-height: 48px; padding: 0 16px; }
-            .legal-panel { padding: 26px 22px; }
-            .legal-panel h2 { font-size: 22px; }
-            .legal-copy { font-size: 15px; }
+            .listing-card { padding: 26px 22px; }
+            .request-banner { padding: 30px 22px; margin-bottom: 60px; }
+            .request-banner p { letter-spacing: 4px; }
             .site-footer { padding: 40px 24px 20px; }
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; }
         }
     </style>
 </head>
@@ -205,8 +201,9 @@
         </a>
         <nav class="menu" aria-label="Navigazione principale">
             <a href="usato.html">AUTO USATE</a>
-            <a href="km-zero.html">AUTO KM ZERO</a>
-            <a href="chi-siamo.html" aria-current="page">CHI SIAMO</a>
+            <a href="km-zero.html" aria-current="page">AUTO KM ZERO</a>
+            <a href="chi-siamo.html">CHI SIAMO</a>
+            <a href="vendi.html">VENDI</a>
         </nav>
     </header>
 
@@ -218,27 +215,27 @@
             </div>
         </section>
 
-        <section class="company-section" aria-label="Dati e posizione di Brama Auto">
-            <article class="company-card">
+        <section class="catalogue" aria-label="Catalogo auto usate e km zero">
+            <article class="listing-card">
                 <p class="section-label">LISTA AUTO DISPONIBILI</p>
                 <h2>VEDI LE AUTO PUBBLICATE SU SUBITO</h2>
-                                
-                /* INSERISCI QUI IL LOGO AUTOSCOUT COL LINK O DEVIDI ALTRO MODO */
-                </div>
+                <p>Scopri i veicoli disponibili in stock e contattaci per verificare disponibilità, finanziamenti e permute.</p>
+                <a class="cta-link" href="https://www.subito.it/auto" target="_blank" rel="noopener noreferrer">Apri il catalogo Subito →</a>
             </article>
-            <div>
-                <article class="company-card">
+
+            <article class="listing-card">
                 <p class="section-label">LISTA AUTO DISPONIBILI</p>
-                <h2>VEDI LE AUTO PUBBLICATE SU AUTOSCOUT</h2>
-                
-                /* INSERISCI QUI IL LOGO AUTOSCOUT COL LINK O DEVIDI ALTRO MODO */
+                <h2>VEDI LE AUTO PUBBLICATE SU AUTOSCOUT24</h2>
+                <p>Consulta le offerte selezionate per trovare il veicolo giusto per te: prezzi, chilometri, caratteristiche e condizioni.</p>
+                <a class="cta-link" href="https://www.autoscout24.it/" target="_blank" rel="noopener noreferrer">Apri il catalogo Autoscout24 →</a>
             </article>
-            </div>
         </section>
-                    <div class="heading-inner">
-                <p class="eyebrow" Test-alig="center">NON HAI TROVATO QUELLO CHE CERCHI ? CHIEDI L'AUTO CHE CERCHI</p>
-                <h1 id="page-title" Test-alig="center">FAI UNA RICHIESTA SPECIFICA</h1>
-            </div>
+
+        <div class="request-banner">
+            <p>NON HAI TROVATO QUELLO CHE CERCHI?</p>
+            <h2>FAI UNA RICHIESTA SPECIFICA</h2>
+            <a href="vendi.html">Richiedi il tuo veicolo</a>
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -273,34 +270,5 @@
             <span>Maserà di Padova</span>
         </div>
     </footer>
-
-    <script>
-        const legalTabs = Array.from(document.querySelectorAll('[role="tab"]'));
-        const legalPanels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
-
-        function selectLegalTab(tab) {
-            legalTabs.forEach((item) => {
-                const selected = item === tab;
-                item.setAttribute('aria-selected', String(selected));
-                item.tabIndex = selected ? 0 : -1;
-            });
-            legalPanels.forEach((panel) => {
-                panel.hidden = panel.id !== tab.getAttribute('aria-controls');
-            });
-        }
-
-        legalTabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => selectLegalTab(tab));
-            tab.addEventListener('keydown', (event) => {
-                let nextIndex = index;
-                if (event.key === 'ArrowRight') nextIndex = (index + 1) % legalTabs.length;
-                else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + legalTabs.length) % legalTabs.length;
-                else return;
-                event.preventDefault();
-                legalTabs[nextIndex].focus();
-                selectLegalTab(legalTabs[nextIndex]);
-            });
-        });
-    </script>
 </body>
 </html>
