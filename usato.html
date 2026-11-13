@@ -1,40 +1,329 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-  <meta name="description" content="Auto usate selezionate da Brama Auto a Maserà di Padova. Consulta gli annunci esterni e contattaci per disponibilità e permute.">
-  <title>Auto usate | Brama Auto</title>
-  <style>
-    :root{--orange:#ff6500;--orange-hover:#e85c00;--white:#fff;--dark:#111;--muted:#c0c0c4;--panel:#17181c;--line:#303137}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:24px}body{min-width:320px;min-height:100vh;background:var(--dark);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.5}a{color:inherit}a:focus-visible{outline:3px solid #ff9a54;outline-offset:4px}
-    .navbar{display:flex;width:100%;min-height:82px;align-items:center;justify-content:space-between;gap:28px;padding:14px max(5%,calc((100% - 1440px)/2));border-bottom:1px solid rgba(255,255,255,.14);background:#0f0f0f}
-    .logo{display:flex;align-items:center;gap:12px;color:#fff;font-size:20px;font-weight:800;letter-spacing:4px;text-decoration:none;white-space:nowrap}.logo-mark{color:var(--orange);font-size:40px;font-weight:900;line-height:1}.menu{display:flex;align-items:center;gap:clamp(16px,2.4vw,36px)}.menu a{padding:10px 0;color:rgba(255,255,255,.88);font-size:11px;font-weight:700;letter-spacing:2px;text-decoration:none}.menu a:hover,.menu a[aria-current=page]{color:#ff9856}.menu .nav-cta{padding:12px 18px;border:1px solid var(--orange);background:var(--orange);color:#fff}.menu .nav-cta:hover{background:var(--orange-hover);color:#fff}
-    .page-heading{display:flex;min-height:300px;align-items:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 82% 45%,rgba(255,101,0,.12),transparent 35%),#0e0f11}.heading-inner,.content-wrap{width:min(100% - 48px,1280px);margin:0 auto}.heading-inner{padding:64px 0}.eyebrow,.section-label{margin-bottom:18px;color:#ff9856;font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase}h1{max-width:900px;font-size:clamp(44px,6.6vw,78px);font-weight:900;line-height:.98;letter-spacing:-.05em;text-transform:uppercase}.intro{max-width:700px;margin-top:20px;color:var(--muted);font-size:18px;line-height:1.65}
-    .catalogue{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:0 auto;padding:56px 0 32px}.listing-card{display:flex;min-height:280px;flex-direction:column;align-items:flex-start;padding:34px;border:1px solid var(--line);background:linear-gradient(145deg,#191a1f,#141519);transition:transform .2s ease,border-color .2s ease}.listing-card:hover{transform:translateY(-3px);border-color:#515158}.listing-card .section-label{margin-bottom:20px;font-size:11px;letter-spacing:3px}.listing-card h2{margin-bottom:14px;font-size:clamp(24px,3vw,34px);line-height:1.12;letter-spacing:-.025em}.listing-card p{max-width:520px;color:var(--muted);font-size:16px;line-height:1.7}.card-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:24px}.button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border:1px solid transparent;background:var(--orange);color:#fff;font-size:13px;font-weight:800;text-decoration:none;transition:transform .2s ease,background .2s ease}.button:hover{transform:translateY(-2px);background:var(--orange-hover)}.button-secondary{border-color:#67676c;background:transparent}.button-secondary:hover{background:rgba(255,255,255,.08)}.external-note{margin-top:12px;color:#a6a6ab;font-size:13px}
-    .request-banner{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:24px auto 80px;padding:34px;border:1px solid rgba(255,101,0,.4);background:linear-gradient(110deg,rgba(255,101,0,.12),rgba(23,24,28,.98) 66%)}.request-banner p{margin-bottom:8px;color:#ff9856;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase}.request-banner h2{font-size:clamp(24px,3.2vw,36px);line-height:1.15;letter-spacing:-.03em}.request-banner .description{margin-top:8px;color:var(--muted);font-size:15px}
-    .site-footer{border-top:1px solid var(--line);padding:48px max(5%,calc((100% - 1440px)/2)) 22px;background:#101113}.footer-content{display:grid;grid-template-columns:2fr 1fr 1fr;gap:42px;padding-bottom:34px}.footer-brand p{max-width:380px;margin-top:16px;color:var(--muted);font-size:15px;line-height:1.7}.footer-heading{margin-bottom:16px;font-size:13px;letter-spacing:2px;text-transform:uppercase}.footer-links{display:grid;gap:10px}.footer-links a,.footer-contact p{color:var(--muted);font-size:14px;line-height:1.6;text-decoration:none}.footer-links a:hover{color:#ff9856}.footer-bottom{display:flex;justify-content:space-between;gap:14px;padding-top:18px;border-top:1px solid var(--line);color:#b0b0b4;font-size:13px}
-    @media(max-width:900px){.navbar{flex-wrap:wrap;justify-content:center}.menu{justify-content:center;flex-wrap:wrap}.catalogue{grid-template-columns:1fr}.listing-card{min-height:unset}}
-    @media(max-width:700px){.navbar{gap:12px;padding:14px 18px}.logo{font-size:18px}.logo-mark{font-size:36px}.menu{gap:6px 14px}.menu a{font-size:10px;letter-spacing:1px}.menu .nav-cta{padding:9px 12px}.heading-inner,.content-wrap{width:min(100% - 36px,1280px)}.page-heading{min-height:unset}.heading-inner{padding:52px 0}.eyebrow{font-size:10px;letter-spacing:2.5px}h1{font-size:clamp(40px,11vw,62px)}.intro{font-size:16px}.catalogue{padding:30px 0 20px;gap:14px}.listing-card{padding:24px 20px}.listing-card h2{font-size:25px}.listing-card p{font-size:15px}.request-banner{align-items:flex-start;flex-direction:column;margin:18px auto 54px;padding:24px 20px}.request-banner .button{width:100%}.footer-content{grid-template-columns:1fr;gap:26px}.site-footer{padding:36px 20px 18px}.footer-bottom{flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171717">
+    <meta name="description" content="Scopri Brama Auto: vieni a trovarci a Maserà di Padova o contattaci per informazioni sulle nostre auto usate e a km zero.">
+    <title>Auto usate in pronta consegna | Brama Auto</title>
+    <style>
+        :root {
+            --orange: #ff6500;
+            --white: #ffffff;
+            --dark: #111111;
+            --muted: #b8b8b8;
+            --panel: #141519;
+            --line: #292a30;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--dark);
+        }
+        a { color: inherit; }
+
+        .navbar {
+            display: flex;
+            width: 100%;
+            min-height: 84px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 16px max(5%, calc((100% - 1520px) / 2));
+            border-bottom: 1px solid rgba(255, 255, 255, .12);
+            background: #0f0f0f;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--white);
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .logo-mark { color: var(--orange); font-size: 42px; font-weight: 900; line-height: 1; letter-spacing: 0; }
+        .logo-auto { color: var(--orange); }
+        .menu { display: flex; align-items: center; gap: clamp(20px, 3vw, 48px); }
+        .menu a {
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+            color: rgba(255, 255, 255, .8);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-decoration: none;
+            transition: color .2s ease, border-color .2s ease;
+        }
+        .menu a:hover, .menu a[aria-current="page"] { border-color: var(--orange); color: var(--orange); }
+
+        .page-heading {
+            display: flex;
+            min-height: 316px;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            background: #0e0f11;
+        }
+        .heading-inner { width: min(100% - 48px, 1520px); margin: 0 auto; padding: 66px 0; }
+        .eyebrow, .section-label {
+            margin: 0 0 24px;
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+        }
+        h1 {
+            color: var(--white);
+            font-size: clamp(54px, 6vw, 72px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: .98;
+            text-transform: uppercase;
+        }
+
+        .company-section {
+            display: grid;
+            width: min(100% - 48px, 1520px);
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin: 0 auto;
+            padding: 70px 0 90px;
+        }
+        .company-card {
+            align-self: start;
+            padding: 40px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+        }
+        .company-card .section-label { margin-bottom: 34px; font-size: 12px; letter-spacing: 5px; }
+        .company-card h2 { margin: 0 0 32px; font-size: clamp(28px, 3vw, 36px); letter-spacing: -1px; }
+        .portal-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 230px;
+            padding: 28px 24px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.02);
+            text-decoration: none;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+        .portal-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 101, 0, 0.7);
+            background: rgba(255, 101, 0, 0.04);
+        }
+        .portal-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 88px;
+            margin-bottom: 18px;
+            font-size: clamp(20px, 2vw, 28px);
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+        .portal-logo span { color: var(--orange); }
+        .portal-text {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .portal-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--orange);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .portal-link:hover { text-decoration: underline; }
+        .address { display: flex; gap: 16px; margin-bottom: 22px; font-size: 17px; line-height: 1.5; }
+        .icon { flex: 0 0 20px; color: var(--orange); font-size: 21px; line-height: 1.2; text-align: center; }
+        .hours { color: var(--muted); }
+        .hours strong { display: block; margin-bottom: 2px; color: #c4c4c7; font-weight: 400; }
+        .hours span { display: block; color: var(--white); }
+        .details { margin: 16px 0 0; list-style: none; }
+        .details li {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 19px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 16px;
+        }
+        .details li span:last-child { color: var(--white); text-align: right; }
+        .details a { text-decoration: none; }
+        .details a:hover { color: var(--orange); }
+        .map-frame { min-height: 500px; border: 0; background: #e8e8e8; }
+        .map-link { display: inline-block; margin-top: 16px; color: var(--orange); font-size: 14px; text-decoration: none; }
+        .map-link:hover { text-decoration: underline; }
+
+        .legal-section { width: min(100% - 48px, 1520px); margin: 0 auto; padding: 0 0 90px; }
+        .legal-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .legal-tab {
+            display: inline-flex;
+            min-height: 52px;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 22px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            font: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color .2s ease, border-color .2s ease, background .2s ease;
+        }
+        .legal-tab:hover, .legal-tab:focus-visible { border-color: var(--orange); color: var(--white); }
+        .legal-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+        .legal-tab[aria-selected="true"] { border-color: var(--orange); background: rgba(255, 101, 0, .14); color: var(--white); }
+        .legal-tab-icon { color: currentColor; font-size: 17px; line-height: 1; }
+        .legal-panel { padding: 40px; border: 1px solid var(--line); background: var(--panel); }
+        .legal-panel[hidden] { display: none; }
+        .legal-panel h2 { margin: 0 0 28px; color: var(--white); font-size: 26px; letter-spacing: -.5px; }
+        .legal-copy { color: #e1e1e4; font-size: 17px; line-height: 1.65; }
+        .legal-copy p { margin: 0 0 18px; }
+        .legal-copy p:last-child { margin-bottom: 0; }
+        .legal-copy strong { font-weight: 700; }
+
+        /* Piè di pagina ripreso dalla home */
+        .site-footer { border-top: 1px solid var(--line); padding: 56px max(5%, calc((100% - 1520px) / 2)) 24px; background: #101113; color: var(--white); }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 40px; }
+        .footer-brand p { max-width: 380px; margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+        .footer-heading { margin: 0 0 18px; color: var(--white); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-links { display: grid; gap: 12px; }
+        .footer-links a, .footer-contact p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; text-decoration: none; }
+        .footer-links a:hover { color: var(--orange); }
+        .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); color: #858589; font-size: 13px; }
+
+        @media (max-width: 800px) {
+            .company-section { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 60px; }
+            .map-frame { min-height: 400px; }
+            .page-heading { min-height: 270px; }
+        }
+        @media (max-width: 700px) {
+            .footer-content { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .navbar { flex-direction: column; gap: 14px; padding: 14px 18px; }
+            .logo { font-size: 18px; letter-spacing: 4px; }
+            .logo-mark { font-size: 36px; }
+            .menu { width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px 18px; }
+            .menu a { font-size: 9px; letter-spacing: 1.5px; }
+            .page-heading { min-height: 240px; }
+            .heading-inner, .company-section, .legal-section { width: min(100% - 36px, 1520px); }
+            .heading-inner { padding: 55px 0; }
+            .eyebrow { margin-bottom: 18px; font-size: 10px; letter-spacing: 4px; }
+            h1 { font-size: clamp(46px, 13vw, 64px); letter-spacing: -2px; }
+            .company-card { padding: 26px 22px; }
+            .company-card h2 { font-size: 27px; }
+            .address { font-size: 15px; }
+            .details li { font-size: 14px; }
+            .map-frame { min-height: 340px; }
+            .legal-section { padding-bottom: 60px; }
+            .legal-tabs { gap: 8px; margin-bottom: 24px; }
+            .legal-tab { flex: 1 1 100%; justify-content: flex-start; min-height: 48px; padding: 0 16px; }
+            .legal-panel { padding: 26px 22px; }
+            .legal-panel h2 { font-size: 22px; }
+            .legal-copy { font-size: 15px; }
+            .site-footer { padding: 40px 24px 20px; }
+        }
+    </style>
 </head>
 <body>
-  <header class="navbar">
-    <a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale"><span class="logo-mark" aria-hidden="true">B</span><span>BRAMA AUTO</span></a>
-    <nav class="menu" aria-label="Navigazione principale">
-      <a href="usato.html" aria-current="page">AUTO USATE</a><a href="km-zero.html">KM ZERO</a><a href="chi-siamo.html">CHI SIAMO</a><a class="nav-cta" href="vendi.html">VALUTA LA TUA AUTO</a>
-    </nav>
-  </header>
-  <main>
-    <section class="page-heading" aria-labelledby="page-title"><div class="heading-inner"><p class="eyebrow">Selezione Brama Auto</p><h1 id="page-title">Auto usate, scelte con cura.</h1><p class="intro">Esplora gli annunci pubblicati sulle piattaforme esterne e contattaci per confermare disponibilità, dettagli e possibilità di permuta.</p></div></section>
-    <section class="catalogue content-wrap" aria-label="Annunci auto usate">
-      <article class="listing-card"><p class="section-label">Annunci online · Subito</p><h2>Scopri le nostre auto su Subito</h2><p>La disponibilità può cambiare: chiedici conferma dell’annuncio e delle condizioni prima di organizzare una visita.</p><div class="card-actions"><a class="button" href="https://www.subito.it/auto" target="_blank" rel="noopener noreferrer">Apri Subito <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="tel:+393298546368">Chiedi disponibilità</a></div><p class="external-note">Si apre una piattaforma esterna.</p></article>
-      <article class="listing-card"><p class="section-label">Annunci online · AutoScout24</p><h2>Consulta le offerte su AutoScout24</h2><p>Trova un modello interessante e contattaci: verificheremo insieme chilometraggio, dotazioni e disponibilità.</p><div class="card-actions"><a class="button" href="https://www.autoscout24.it/" target="_blank" rel="noopener noreferrer">Apri AutoScout24 <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="mailto:commerciale@bramarent.it?subject=Informazioni%20auto%20usata">Scrivici</a></div><p class="external-note">Si apre una piattaforma esterna.</p></article>
-    </section>
-    <section class="request-banner content-wrap" aria-labelledby="request-title"><div><p>Non hai trovato il modello giusto?</p><h2 id="request-title">Raccontaci cosa stai cercando.</h2><p class="description">Ti ricontattiamo per verificare le disponibilità e le alternative.</p></div><a class="button" href="mailto:commerciale@bramarent.it?subject=Ricerca%20auto%20usata">Richiedi informazioni <span aria-hidden="true">→</span></a></section>
-  </main>
-  <footer class="site-footer"><div class="footer-content"><div class="footer-brand"><a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale"><span class="logo-mark" aria-hidden="true">B</span><span>BRAMA AUTO</span></a><p>Auto usate selezionate, vetture a km zero e consulenza su misura. Ti aspettiamo a Maserà di Padova.</p></div><div class="footer-contact"><h2 class="footer-heading">Contatti</h2><div class="footer-links"><p>BRAMA AUTO SRL · Via Enrico Bernardi 2, 35020 Maserà di Padova (PD)</p><a href="tel:+393298546368">+39 329 8546368</a><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></div></div><div><h2 class="footer-heading">Navigazione</h2><nav class="footer-links" aria-label="Link del piè di pagina"><a href="usato.html">Auto usate</a><a href="km-zero.html">Auto km zero</a><a href="chi-siamo.html">Chi siamo</a><a href="vendi.html">Valuta la tua auto</a></nav></div></div><div class="footer-bottom"><span>© 2026 Brama Auto. Tutti i diritti riservati.</span><span>Maserà di Padova</span></div></footer>
+    <header class="navbar">
+        <a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale">
+            <span class="logo-mark" aria-hidden="true">B</span>
+            <span>BRAMA <span class="logo-auto">AUTO</span></span>
+        </a>
+        <nav class="menu" aria-label="Navigazione principale">
+            <a href="usato.html" aria-current="page">AUTO USATE</a>
+            <a href="km-zero.html">AUTO KM ZERO</a>
+            <a href="chi-siamo.html">CHI SIAMO</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <div class="heading-inner">
+                <p class="eyebrow">LA NOSTRA SELEZIONE DELL'USATO</p>
+                <h1 id="page-title">GUARDA LE NOSTRE PROPOSTE</h1>
+            </div>
+        </section>
+
+        <section class="company-section" aria-label="Cataloghi auto usate Brama Auto">
+            <article class="company-card">
+                <p class="section-label">LISTA AUTO DISPONIBILI</p>
+                <h2>VEDI LE AUTO PUBBLICATE SU SUBITO</h2>
+                <a class="portal-card" href="https://impresapiu.subito.it/shops/54410-brama-auto" target="_blank" rel="noopener noreferrer" aria-label="Apri il negozio Brama Auto su Subito">
+                    <div class="portal-logo"><span>S</span>ubito</div>
+                    <div class="portal-text">Scopri tutte le auto usate disponibili in stock, con foto, dettagli tecnici e prezzo aggiornato.</div>
+                    <span class="portal-link">Apri il catalogo →</span>
+                </a>
+            </article>
+
+            <article class="company-card">
+                <p class="section-label">LISTA AUTO DISPONIBILI</p>
+                <h2>VEDI LE AUTO PUBBLICATE SU AUTOSCOUT</h2>
+                <a class="portal-card" href="https://www.autoscout24.it/concessionari/dem-car-masera-di-padova-padova-pd" target="_blank" rel="noopener noreferrer" aria-label="Apri il concessionario Brama Auto su AutoScout24">
+                    <div class="portal-logo"><span>AS</span>24</div>
+                    <div class="portal-text">Consulta il concessionario Brama Auto su AutoScout24 e trova le nostre vetture disponibili in pronta consegna.</div>
+                    <span class="portal-link">Apri il concessionario →</span>
+                </a>
+            </article>
+        </section>
+
+        <div class="heading-inner" style="padding-top: 0;">
+            <p class="eyebrow" style="text-align:center; margin-bottom:18px;">NON HAI TROVATO QUELLO CHE CERCHI ? CHIEDI L'AUTO CHE CERCHI</p>
+            <h1 id="page-title-2" style="text-align:center; font-size: clamp(38px, 5vw, 56px);">FAI UNA RICHIESTA SPECIFICA</h1>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale">
+                    <span class="logo-mark">B</span>
+                    <span>BRAMA <span class="logo-auto">AUTO</span></span>
+                </a>
+                <p>Auto usate selezionate, vetture a km zero e consulenza su misura. Ti aspettiamo a Maserà di Padova.</p>
+            </div>
+            <div class="footer-contact">
+                <h2 class="footer-heading">CONTATTI</h2>
+                <div class="footer-links" aria-label="Contatti Brama Auto">
+                    <p>BRAMA AUTO SRL - Via Enrico Bernardi 2, 35020 Maserà di Padova (PD)</p>
+                    <p><a href="tel:+393298546368">+39 329 8546368</a></p>
+                    <p><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></p>
+                </div>
+            </div>
+            <div>
+                <h2 class="footer-heading">NAVIGAZIONE</h2>
+                <nav class="footer-links" aria-label="Link del piè di pagina">
+                    <a href="usato.html">Auto Usate</a>
+                    <a href="km-zero.html">Auto KM Zero</a>
+                    <a href="chi-siamo.html">Chi Siamo</a>
+                    <a href="vendi.html">Vendi qui la tua auto</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Brama Auto. Tutti i diritti riservati.</span>
+            <span>Maserà di Padova</span>
+        </div>
+    </footer>
 </body>
 </html>
