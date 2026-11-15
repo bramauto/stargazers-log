@@ -12,7 +12,7 @@
     html{scroll-behavior:smooth}
     body{min-width:320px;min-height:100vh;background:var(--dark);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
     a{color:inherit}
-    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #ff9856;outline-offset:3px}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ff9856;outline-offset:3px}
     .navbar{display:flex;width:100%;min-height:80px;align-items:center;justify-content:space-between;gap:30px;padding:12px max(5%,calc((100% - 1520px)/2));border-bottom:1px solid #222328;background:#0f0f0f}
     .logo{display:flex;align-items:center;gap:14px;color:var(--white);font-size:21px;font-weight:800;letter-spacing:5px;text-decoration:none;white-space:nowrap}
     .logo-mark{color:var(--orange);font-size:42px;font-weight:900;line-height:1;letter-spacing:0}.logo-auto{color:var(--orange)}
@@ -29,11 +29,13 @@
     .section-label{margin-bottom:30px;font-size:12px;letter-spacing:4px}
     .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px}.field{display:grid;gap:9px}.field-wide{grid-column:1/-1}
     label{color:#c3c3c6;font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase}
-    input{width:100%;min-height:54px;padding:0 15px;border:1px solid var(--line);border-radius:0;background:#0b0c0e;color:var(--white);font:inherit;font-size:16px}
-    input::placeholder{color:#777980}
+    input,select,textarea{width:100%;min-height:54px;padding:12px 15px;border:1px solid var(--line);border-radius:0;background:#0b0c0e;color:var(--white);font:inherit;font-size:16px}
+    input::placeholder,textarea::placeholder{color:#777980}select:invalid{color:#777980}select option{color:var(--white)}textarea{min-height:130px;resize:vertical}
     .submit-button{display:inline-flex;min-height:60px;align-items:center;justify-content:center;gap:12px;margin-top:30px;padding:0 28px;border:0;background:var(--orange);color:var(--white);cursor:pointer;font:inherit;font-size:15px;font-weight:700;transition:transform .2s,background .2s}
-    .submit-button:hover{transform:translateY(-2px);background:#e85c00}
+    .submit-button:hover:not(:disabled){transform:translateY(-2px);background:#e85c00}.submit-button:disabled{cursor:wait;opacity:.7}
     .privacy-note{margin-top:20px;color:#a0a1a5;font-size:13px;line-height:1.6}.privacy-note a{color:#fff;text-decoration:underline}
+    .form-status{display:none;margin-top:20px;padding:16px 18px;border:1px solid #367a49;background:#102417;color:#b8f0c4;font-size:15px;line-height:1.6}
+    .form-status.is-visible{display:block}.form-status.is-error{border-color:#9c4040;background:#2a1414;color:#ffd0d0}
     .benefits{display:grid;align-content:start;gap:20px}.benefit-card{padding:28px}.benefit-icon{display:block;margin-bottom:16px;color:var(--orange);font-size:30px;line-height:1}
     .benefit-card h2{margin-bottom:12px;font-size:20px}.benefit-card p{color:var(--muted);font-size:15px;line-height:1.7}
     .site-footer{border-top:1px solid var(--line);padding:48px max(5%,calc((100% - 1520px)/2)) 22px;background:#101113}
@@ -62,9 +64,10 @@
       </div>
     </section>
     <section class="sell-section" aria-label="Richiesta di valutazione auto">
-      <form class="form-card" action="https://formsubmit.co/commerciale@bramarent.it" method="POST">
+      <form class="form-card" id="valuation-form" action="https://formsubmit.co/commerciale@bramarent.it" method="POST">
         <input type="hidden" name="_subject" value="Nuova richiesta di valutazione auto - Brama Auto">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <div class="honeypot" aria-hidden="true"><label for="_honey">Lascia vuoto questo campo</label><input id="_honey" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
         <p class="section-label">DATI DELLA VETTURA E RECAPITI</p>
         <div class="fields">
@@ -75,11 +78,14 @@
           <div class="field"><label for="transmission">5. Tipo di cambio *</label><input id="transmission" name="Tipo di cambio" placeholder="Es. Manuale / Automatico" required></div>
           <div class="field"><label for="plate">6. Targa *</label><input id="plate" name="Targa" autocomplete="off" placeholder="Es. AB123CD" required></div>
           <div class="field"><label for="price">7. Prezzo desiderato (€) *</label><input id="price" name="Prezzo desiderato" type="number" min="0" step="100" placeholder="Es. 8000" required></div>
-          <div class="field"><label for="email">8. La tua email *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" required></div>
+          <div class="field"><label for="email">8. La tua email *</label><input id="email" name="_replyto" type="email" autocomplete="email" placeholder="nome@esempio.it" required></div>
           <div class="field"><label for="phone">9. Il tuo telefono *</label><input id="phone" name="Telefono" type="tel" autocomplete="tel" placeholder="Es. 3331234567" required></div>
+          <div class="field"><label for="condition">10. Stato della vettura</label><select id="condition" name="Stato della vettura"><option value="" selected>Seleziona lo stato</option><option>Ottimo</option><option>Buono</option><option>Discreto</option><option>Da riparare</option></select></div>
+          <div class="field field-wide"><label for="notes">11. Note aggiuntive</label><textarea id="notes" name="Note aggiuntive" maxlength="2000" placeholder="Aggiungi eventuali informazioni su manutenzione, danni, accessori o altro (facoltativo)."></textarea></div>
         </div>
-        <button class="submit-button" type="submit"><span aria-hidden="true">➤</span>Invia richiesta di valutazione</button>
+        <button class="submit-button" id="submit-button" type="submit"><span aria-hidden="true">➤</span>Invia richiesta di valutazione</button>
         <p class="privacy-note">Inviando il modulo, i dati saranno trasmessi a FormSubmit per l'inoltro a Brama Auto e usati per ricontattarti in merito alla valutazione. Consulta la <a href="chi-siamo.html#panel-privacy">privacy policy</a>.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
       </form>
       <aside class="benefits" aria-label="Vantaggi della valutazione">
         <article class="benefit-card"><span class="benefit-icon" aria-hidden="true">€</span><h2>Valutazione concreta</h2><p>Ti rispondiamo con una proposta d'acquisto reale, non una stima automatica.</p></article>
@@ -96,5 +102,40 @@
     </div>
     <div class="footer-bottom"><span>© 2026 Brama Auto. Tutti i diritti riservati.</span><span>Maserà di Padova</span></div>
   </footer>
+  <script>
+    const form = document.getElementById('valuation-form');
+    const statusMessage = document.getElementById('form-status');
+    const submitButton = document.getElementById('submit-button');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      statusMessage.className = 'form-status';
+      statusMessage.textContent = 'Invio della richiesta in corso…';
+      statusMessage.classList.add('is-visible');
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Invio non riuscito');
+
+        statusMessage.textContent = 'Richiesta inviata correttamente! Grazie: ti ricontatteremo al più presto.';
+        form.reset();
+        statusMessage.focus();
+      } catch (error) {
+        statusMessage.classList.add('is-error');
+        statusMessage.textContent = 'Non è stato possibile inviare la richiesta. Riprova tra poco oppure contattaci direttamente via email o telefono.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+      }
+    });
+  </script>
 </body>
 </html>
