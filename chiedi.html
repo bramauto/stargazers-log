@@ -103,6 +103,11 @@
     const category = params.get('info');
     const inquiry = category === 'usato' || category === 'km-zero';
     if (inquiry) {
+      const nextPage = document.createElement('input');
+      nextPage.type = 'hidden';
+      nextPage.name = '_next';
+      nextPage.value = new URL('index.html', location.href).href;
+      form.append(nextPage);
       const model = params.get('auto') || '';
       const heading = 'Informazioni auto ' + (category === 'usato' ? 'usate' : 'a km zero');
       document.title = heading + ' | Brama Auto';
