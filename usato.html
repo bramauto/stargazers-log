@@ -32,9 +32,9 @@
     .vehicle-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px}
     .vehicle-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
     .portal-links{margin-top:20px;color:var(--muted)}
-    @keyframes request-pulse { 50% { opacity: .45; } }
+    @keyframes request-pulse { 0%, 35%, 100% { opacity: 1; } 60%, 75% { opacity: .25; } }
     @media (prefers-reduced-motion: no-preference) {
-      .custom-request p { animation: request-pulse 2s ease-in-out infinite; }
+      .custom-request p { animation: request-pulse 1.8s ease-in-out infinite; }
     }
   </style>
 </head>
