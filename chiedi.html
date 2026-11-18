@@ -99,7 +99,40 @@
     const emailField = document.getElementById('email');
     const replyToField = document.getElementById('reply-to-field');
 
+    const params = new URLSearchParams(location.search);
+    const category = params.get('info');
+    const inquiry = category === 'usato' || category === 'km-zero';
+    if (inquiry) {
+      const model = params.get('auto') || '';
+      const heading = 'Informazioni auto ' + (category === 'usato' ? 'usate' : 'a km zero');
+      document.title = heading + ' | Brama Auto';
+      document.querySelector('#page-title').textContent = heading;
+      document.querySelector('.intro').textContent = 'Scrivici dal sito. Ti risponderemo all’indirizzo email che indichi nel modulo.';
+      document.querySelector('.form-section').setAttribute('aria-label', heading);
+      document.querySelector('.section-label').textContent = 'La tua richiesta';
+      for (const id of ['vehicle-type', 'fuel', 'year', 'mileage', 'budget', 'payment']) {
+        const field = document.getElementById(id);
+        field.disabled = true;
+        field.closest('.field').style.display = 'none';
+      }
+      document.querySelector('#vehicle').defaultValue = model;
+      document.querySelector('#vehicle').required = false;
+      document.querySelector('label[for="vehicle"]').textContent = 'Vettura di interesse';
+      document.querySelector('#phone').required = false;
+      document.querySelector('label[for="phone"]').textContent = 'Telefono (facoltativo)';
+      document.querySelector('label[for="notes"]').textContent = 'Messaggio *';
+      document.querySelector('#notes').required = true;
+      document.querySelector('#notes').name = 'Messaggio';
+      document.querySelector('#notes').placeholder = 'Cosa vorresti sapere sulla vettura?';
+      form.elements._subject.value = model ? heading + ' - ' + model : heading;
+      submitButton.textContent = 'Invia richiesta';
+    }
+
     form.addEventListener('submit', async (event) => {
+      if (inquiry) {
+        replyToField.value = emailField.value.trim();
+        return;
+      }
       event.preventDefault();
       if (!form.reportValidity()) return;
 
