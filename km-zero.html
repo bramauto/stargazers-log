@@ -46,7 +46,7 @@
       <p class="catalogue-status" id="catalogue-status" role="status" aria-live="polite">Caricamento delle auto disponibili…</p>
       <div class="catalogue" id="vehicle-catalogue"></div>
     </section>
-    <section class="request-banner content-wrap" aria-labelledby="request-title"><div><p>Ti interessa un modello?</p><h2 id="request-title">Verifichiamo insieme la disponibilità.</h2><p class="description">Contattaci per conoscere tempi, allestimenti e condizioni dei modelli disponibili.</p></div><a class="request-link" href="mailto:commerciale@bramarent.it?subject=Informazioni%20auto%20disponibili">Chiedi disponibilità →</a></section>
+    <section class="request-banner content-wrap" aria-labelledby="request-title"><div><p>Ti interessa un modello?</p><h2 id="request-title">Verifichiamo insieme la disponibilità.</h2><p class="description">Contattaci per conoscere tempi, allestimenti e condizioni dei modelli disponibili.</p></div><a class="request-link" href="chiedi.html?info=km-zero">Chiedi disponibilità →</a></section>
     <a class="custom-request content-wrap" href="chiedi.html" aria-label="Non trovi quello che cerchi? Chiedi un preventivo personalizzato"><div><p>Non trovi quello che cerchi?</p><h2>Chiedi un preventivo personalizzato</h2></div><span class="arrow" aria-hidden="true">Vai al modulo →</span></a>
   </main>
   <footer class="site-footer">
@@ -127,7 +127,7 @@
           }
           const contact = document.createElement('a');
           contact.className = 'vehicle-contact';
-          contact.href = `mailto:commerciale@bramarent.it?subject=${encodeURIComponent(`Informazioni ${vehicle.title}`)}`;
+          contact.href = `chiedi.html?info=km-zero&auto=${encodeURIComponent(vehicle.title)}`;
           contact.textContent = 'Chiedi informazioni';
           card.append(contact);
           catalogueElement.append(card);
