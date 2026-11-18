@@ -44,6 +44,8 @@
     .footer-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:18px;border-top:1px solid var(--line);color:#858589;font-size:13px}
     @media(max-width:700px){.navbar{flex-direction:column;gap:12px;padding:14px 18px}.logo{font-size:18px;letter-spacing:4px}.logo-mark{font-size:36px}.menu{justify-content:center;gap:6px 14px}.menu a{font-size:10px;letter-spacing:1px}.heading-inner{padding:48px 0}.page-heading{min-height:300px}.intro{font-size:17px}.form-section{width:min(100% - 36px,1120px);padding:38px 0 58px}.fields{grid-template-columns:1fr}.field-wide{grid-column:auto}.footer-content{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column}.site-footer{padding:40px 24px 20px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+    .site-footer a.collabora-link{display:inline-flex;justify-self:start;align-items:center;justify-content:center;min-height:48px;padding:0 20px;background:var(--orange);color:white;font-size:14px;font-weight:700;text-decoration:none}
+    .site-footer a.collabora-link:is(:hover,:focus-visible){background:#e85c00;color:white}
   </style>
 </head>
 <body>
@@ -87,7 +89,8 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-brand"><a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale"><img src="logo2.jpeg" alt="Brama Auto" width="128" height="128" loading="lazy" style="display:block"></a><p>Auto usate selezionate, vetture a km zero e consulenza su misura. Ti aspettiamo a Maserà di Padova.</p></div>
-      <div class="footer-contact"><h2 class="footer-heading">CONTATTI</h2><div class="footer-links" aria-label="Contatti Brama Auto"><p>BRAMA AUTO SRL - Via Enrico Bernardi 2, 35020 Maserà di Padova (PD)</p><p><a href="tel:+390497361873">+39 049-7361873</a></p><p><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></p></div></div>
+      <div class="footer-contact"><h2 class="footer-heading">CONTATTI</h2><div class="footer-links" aria-label="Contatti Brama Auto"><p>BRAMA AUTO SRL - Via Enrico Bernardi 2, 35020 Maserà di Padova (PD)</p><p><a href="tel:+390497361873">+39 049-7361873</a></p><p><a href="mailto:commerciale@bramarent.it">commerciale@bramarent.it</a></p>
+          <a class="collabora-link" href="chiedi.html?info=collabora">Collabora con Bramauto</a></div></div>
       <div><h2 class="footer-heading">NAVIGAZIONE</h2><nav class="footer-links" aria-label="Link del piè di pagina"><a href="usato.html">Auto usate</a><a href="km-zero.html">Auto km zero</a><a href="chi-siamo.html">Chi siamo</a><a href="vendi.html">Vendi la tua auto</a><a href="chiedi.html">Chiedi un preventivo</a></nav></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Brama Auto. Tutti i diritti riservati.</span><span>Maserà di Padova</span></div>
@@ -101,21 +104,24 @@
 
     const params = new URLSearchParams(location.search);
     const category = params.get('info');
-    const inquiry = category === 'usato' || category === 'km-zero';
+    const collaboration = category === 'collabora';
+    const inquiry = collaboration || category === 'usato' || category === 'km-zero';
     if (inquiry) {
       const nextPage = document.createElement('input');
       nextPage.type = 'hidden';
       nextPage.name = '_next';
       nextPage.value = new URL('index.html', location.href).href;
       form.append(nextPage);
-      const model = params.get('auto') || '';
-      const heading = 'Informazioni auto ' + (category === 'usato' ? 'usate' : 'a km zero');
+      const model = collaboration ? '' : (params.get('auto') || '');
+      const heading = collaboration ? 'Collabora con Bramauto' : 'Informazioni auto ' + (category === 'usato' ? 'usate' : 'a km zero');
       document.title = heading + ' | Brama Auto';
       document.querySelector('#page-title').textContent = heading;
       document.querySelector('.intro').textContent = 'Scrivici dal sito. Ti risponderemo all’indirizzo email che indichi nel modulo.';
       document.querySelector('.form-section').setAttribute('aria-label', heading);
       document.querySelector('.section-label').textContent = 'La tua richiesta';
-      for (const id of ['vehicle-type', 'fuel', 'year', 'mileage', 'budget', 'payment']) {
+      const hiddenFields = ['vehicle-type', 'fuel', 'year', 'mileage', 'budget', 'payment'];
+      if (collaboration) hiddenFields.push('vehicle');
+      for (const id of hiddenFields) {
         const field = document.getElementById(id);
         field.disabled = true;
         field.closest('.field').style.display = 'none';
@@ -128,7 +134,7 @@
       document.querySelector('label[for="notes"]').textContent = 'Messaggio *';
       document.querySelector('#notes').required = true;
       document.querySelector('#notes').name = 'Messaggio';
-      document.querySelector('#notes').placeholder = 'Cosa vorresti sapere sulla vettura?';
+      document.querySelector('#notes').placeholder = collaboration ? 'Presentati e descrivi la collaborazione che proponi.' : 'Cosa vorresti sapere sulla vettura?';
       form.elements._subject.value = model ? heading + ' - ' + model : heading;
       submitButton.textContent = 'Invia richiesta';
     }
