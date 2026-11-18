@@ -54,7 +54,7 @@
       <noscript><p>Per consultare le schede, abilita JavaScript oppure visita la vetrina su Subito.</p></noscript>
       <p class="portal-links"><a href="https://impresapiu.subito.it/shops/54410-brama-auto">Vetrina su Subito</a> · <a href="https://www.autoscout24.it/concessionari/dem-car-masera-di-padova-padova-pd">Vetrina su AutoScout24</a></p>
     </section>
-    <section class="request-banner content-wrap" aria-labelledby="request-title"><div><p>Ti interessa un modello?</p><h2 id="request-title">Verifichiamo insieme la disponibilità.</h2><p class="description">Contattaci per conoscere tempi, allestimenti e condizioni dei modelli disponibili.</p></div><a class="request-link" href="mailto:commerciale@bramarent.it?subject=Informazioni%20auto%20disponibili">Chiedi disponibilità →</a></section>
+    <section class="request-banner content-wrap" aria-labelledby="request-title"><div><p>Ti interessa un modello?</p><h2 id="request-title">Verifichiamo insieme la disponibilità.</h2><p class="description">Contattaci per conoscere tempi, allestimenti e condizioni dei modelli disponibili.</p></div><a class="request-link" href="chiedi.html?info=usato">Chiedi disponibilità →</a></section>
     <a class="custom-request content-wrap" href="chiedi.html" aria-label="Non trovi quello che cerchi? Chiedi un preventivo personalizzato"><div><p>Non trovi quello che cerchi?</p><h2>Chiedi un preventivo personalizzato</h2></div><span class="arrow" aria-hidden="true">Vai al modulo →</span></a>
   </main>
   <footer class="site-footer">
@@ -192,7 +192,7 @@
           card.append(disclosure, listing);
           const contact = document.createElement('a');
           contact.className = 'vehicle-contact';
-          contact.href = `mailto:commerciale@bramarent.it?subject=${encodeURIComponent(`Informazioni ${vehicle.title}`)}`;
+          contact.href = `chiedi.html?info=usato&auto=${encodeURIComponent(vehicle.title)}`;
           contact.textContent = 'Chiedi informazioni';
           card.append(contact);
           catalogueElement.append(card);
