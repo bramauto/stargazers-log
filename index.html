@@ -49,7 +49,12 @@
 <body>
   <main class="hero">
     <header class="navbar">
-      <a class="logo" href="index.html"><span class="logo-mark">B</span><span> BRAMA AUTO</span></a>
+      <a class="logo" href="index.html" aria-label="Brama Auto, pagina iniziale">
+        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="54" viewBox="0 0 936 280" aria-hidden="true" style="display:block">
+          <defs><filter id="header-brand" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  -2 2 0 0 1  -1.7 1.7 0 0 1  0 -1.05 0 0 1.02"/></filter></defs>
+          <image href="logo1.jpg" width="936" height="280" filter="url(#header-brand)"/>
+        </svg>
+      </a>
       <nav class="menu" aria-label="Navigazione principale">
         <a href="usato.html">AUTO USATE</a><a href="km-zero.html">KM ZERO</a><a href="chi-siamo.html">CHI SIAMO</a><a class="nav-cta" href="vendi.html">VALUTA LA TUA AUTO</a>
       </nav>
