@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bramauto.github.io/stargazers-log/</loc>
+    <loc>https://bramauto.it/</loc>
   </url>
   <url>
-    <loc>https://bramauto.github.io/stargazers-log/usato.html</loc>
+    <loc>https://bramauto.it/usato.html</loc>
   </url>
   <url>
-    <loc>https://bramauto.github.io/stargazers-log/km-zero.html</loc>
+    <loc>https://bramauto.it/km-zero.html</loc>
   </url>
   <url>
-    <loc>https://bramauto.github.io/stargazers-log/chi-siamo.html</loc>
+    <loc>https://bramauto.it/chi-siamo.html</loc>
   </url>
   <url>
-    <loc>https://bramauto.github.io/stargazers-log/vendi.html</loc>
+    <loc>https://bramauto.it/vendi.html</loc>
+  </url>
+  <url>
+    <loc>https://bramauto.it/chiedi.html</loc>
   </url>
 </urlset>
